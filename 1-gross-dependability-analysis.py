@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from scipy import linalg
-from lib.tools import to_precision, autolabel
+from lib.plot_tools import to_precision, autolabel
 
 def solve():
 # Component failure rates and repair rate
