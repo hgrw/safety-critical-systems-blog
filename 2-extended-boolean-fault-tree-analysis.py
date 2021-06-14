@@ -4,6 +4,7 @@ import networkx as nx
 import json
 import cutsets
 from lib.probability_tools import node_probability
+from lib.plot_tools import to_precision
 
 
 def main():
@@ -49,9 +50,10 @@ def main():
     if argument.top_fit_only:
         for node in nodes:
             if nodes[node]['name'] == "TOP":
-                print("System FIT%: ", nodes[node]['FIT%'])
+                print("System FIT%: ", to_precision(nodes[node]['FIT%'], 6))
     else:
-        print("\nNode FIT% scores:", *[nodes[node]['name'] + ' - ' + nodes[node]['FIT%'] for node in nodes], sep='\n')
+        print("\nNode FIT% scores:",
+              *[nodes[node]['name'] + ' - ' + to_precision(nodes[node]['FIT%'], 4) for node in nodes], sep='\n')
 
 
 if __name__ == "__main__":
